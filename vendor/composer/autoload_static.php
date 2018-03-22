@@ -65,10 +65,13 @@ class ComposerStaticInit79f029c972fb17faefa3dc3e49eba757
         'L' => 
         array (
             'Less\\' => 5,
+            'League\\Flysystem\\' => 17,
         ),
         'J' => 
         array (
             'JsonSchema\\' => 11,
+            'Josegonzalez\\Upload\\Test\\Fixture\\' => 33,
+            'Josegonzalez\\Upload\\' => 20,
             'Jasny\\Twig\\' => 11,
         ),
         'D' => 
@@ -200,9 +203,21 @@ class ComposerStaticInit79f029c972fb17faefa3dc3e49eba757
         array (
             0 => __DIR__ . '/..' . '/elboletaire/less-cake-plugin/src',
         ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
         'JsonSchema\\' => 
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
+        ),
+        'Josegonzalez\\Upload\\Test\\Fixture\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josegonzalez/cakephp-upload/tests/Fixture',
+        ),
+        'Josegonzalez\\Upload\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josegonzalez/cakephp-upload/src',
         ),
         'Jasny\\Twig\\' => 
         array (

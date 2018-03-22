@@ -50,6 +50,7 @@ class PaymentsController extends AppController
     {
         $payment = $this->Payments->newEntity();
         if ($this->request->is('post')) {
+            //dump($this->request->getData());
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
             if ($this->Payments->save($payment)) {
                 $this->Flash->success(__('The payment has been saved.'));

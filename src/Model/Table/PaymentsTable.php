@@ -33,6 +33,16 @@ class PaymentsTable extends Table
         $this->setTable('payments');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            // You can configure as many upload fields as possible,
+            // where the pattern is `field` => `config`
+            //
+            // Keep in mind that while this plugin does not have any limits in terms of
+            // number of files uploaded per request, you should keep this down in order
+            // to decrease the ability of your users to block other requests.
+            'voucher' => []
+        ]);
     }
 
     /**
@@ -74,8 +84,8 @@ class PaymentsTable extends Table
             ->notEmpty('voucher_no');
 
         $validator
-            ->scalar('voucher')
-            ->maxLength('voucher', 500)
+            //->scalar('voucher')
+//            ->maxLength('voucher', 500)
             ->requirePresence('voucher', 'create')
             ->notEmpty('voucher');
 

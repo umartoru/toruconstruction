@@ -6,7 +6,7 @@
     </ul>
 </div>
 <div class="payments form col-lg-10 col-md-9 columns">
-    <?= $this->Form->create($payment); ?>
+    <?= $this->Form->create($payment, ['type' => 'file']); ?>
     <fieldset>
         <legend><?= __('Add Payment') ?></legend>
         <?php
@@ -15,7 +15,7 @@
             echo $this->Form->input('description');
             echo $this->Form->input('amount');
             echo $this->Form->input('voucher_no');
-            echo $this->Form->input('voucher');
+            echo $this->Form->input('voucher', ['type' => 'file']);
             echo $this->Form->input('date');
         ?>
     </fieldset>
