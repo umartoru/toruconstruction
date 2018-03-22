@@ -8,8 +8,8 @@
         <li class="active disabled"><?= $this->Html->link(__('List Accounts'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Parent Accounts'), ['controller' => 'Accounts', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Parent Account'), ['controller' => 'Accounts', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Transactions'), ['controller' => 'Transactions', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Transaction'), ['controller' => 'Transactions', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Payments'), ['controller' => 'Payments', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="accounts index col-lg-10 col-md-9 columns">
