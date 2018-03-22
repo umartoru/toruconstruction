@@ -1,0 +1,30 @@
+{
+    "name": "elboletaire/twbs-cake-plugin",
+    "authors": [
+        {
+            "name": "Òscar Casajuana",
+            "email": "elboletaire@underave.net",
+            "homepage": "http://racotecnic.com",
+            "role": "Developer"
+        }
+    ],
+    "description": "Twitter Bootstrap Plugin for CakePHP 3 with bundled less.php and less.js parsers, helpers and bake templates",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "bootstrap", "plugin", "template"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/elboletaire/twbs-cake-plugin/issues",
+        "source": "https://github.com/elboletaire/twbs-cake-plugin.git"
+    },
+    "homepage": "https://github.com/elboletaire/twbs-cake-plugin",
+    "require": {
+        "cakephp/cakephp": "^3.3",
+        "elboletaire/less-cake-plugin": "^1.7",
+        "friendsofcake/bootstrap-ui": "^0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bootstrap\\": "src"
+        }
+    }
+}
