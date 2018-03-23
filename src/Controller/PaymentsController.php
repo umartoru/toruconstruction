@@ -35,7 +35,7 @@ class PaymentsController extends AppController
     public function view($id = null)
     {
         $payment = $this->Payments->get($id, [
-            'contain' => []
+            'contain' => ['FromAccounts','ToAccounts']
         ]);
 
         $this->set('payment', $payment);
@@ -72,7 +72,7 @@ class PaymentsController extends AppController
     public function edit($id = null)
     {
         $payment = $this->Payments->get($id, [
-            'contain' => []
+            'contain' => ['FromAccounts','ToAccounts']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());

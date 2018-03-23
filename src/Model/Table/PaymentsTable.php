@@ -33,6 +33,14 @@ class PaymentsTable extends Table
         $this->setTable('payments');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->belongsTo('FromAccounts', [
+            'className' => 'Accounts',
+            'foreignKey' => 'from_account'
+        ])->setProperty('fromAccount');
+        $this->belongsTo('ToAccounts', [
+            'className' => 'Accounts',
+            'foreignKey' => 'to_account'
+        ])->setProperty('toAccount');
         
         $this->addBehavior('Josegonzalez/Upload.Upload', [
             // You can configure as many upload fields as possible,
