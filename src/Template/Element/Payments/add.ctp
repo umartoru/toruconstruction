@@ -29,8 +29,8 @@
     <fieldset>
         <!--<legend><?= __('Add Payment') ?></legend>-->
         <?php
-            echo $this->Form->input('from_account');
-            echo $this->Form->input('to_account');
+            echo $this->Form->control('from_account', ['options' => $tree]);
+            echo $this->Form->control('to_account', ['options' => $tree]);
             echo $this->Form->input('description');
             echo $this->Form->input('amount');
             echo $this->Form->input('voucher_no');
@@ -40,8 +40,11 @@
     </fieldset>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+             <button type="submit" class="btn btn-success pull-right">
+                 <span class="glyphicon glyphicon-ok"></span> Submit</button>
+
+    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+    <span class="glyphicon glyphicon-remove"></span> Cancel</button>        </div>
       </div>
       
     </div>

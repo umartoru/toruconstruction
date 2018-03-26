@@ -21,7 +21,14 @@ class AccountsController extends AppController
      */
     public function index()
     {
-
+        $this->loadModel('Payments');
+        $payment = $this->Payments->newEntity();
+        $tree = $this->Accounts->find('treeList', [
+        // 'keyPath' => 'url',
+       // 'valuePath' => 'id',
+        'spacer' => '--'
+        ]);
+        $this->set('tree', $tree);
         $this->set(compact('payment'));
 
     }
