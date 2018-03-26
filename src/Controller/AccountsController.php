@@ -22,6 +22,8 @@ class AccountsController extends AppController
     public function index()
     {
 
+        $this->set(compact('payment'));
+
     }
 
     

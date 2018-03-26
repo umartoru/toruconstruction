@@ -55,7 +55,7 @@ class PaymentsController extends AppController
             if ($this->Payments->save($payment)) {
                 $this->Flash->success(__('The payment has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'accounts/index']);
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }

@@ -55,6 +55,7 @@ $this->prepend('script', $this->Html->script([
         echo $this->fetch('css');
         echo $this->Html->script('jquery-3.3.1.min');
         echo $this->Html->script('bootstrap-treeview');
+        echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
         // Sometimes we'll want to send scripts to the top (rarely..)
         echo $this->fetch('script.top');
     ?>

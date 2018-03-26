@@ -27,6 +27,8 @@
     </div>
     
 </div>
+<?php echo $this->element('Payments/add');?>
+
 <script>
     $( document ).ready(function() {
   $.ajax({ 
@@ -35,7 +37,13 @@
    dataType: "json",       
    success: function(data)  
    {
-    $('#tree').treeview({data: data});
+    $('#tree').treeview({
+    data: data,
+    onNodeSelected: function(event, data) {
+        $("#paymentModal").modal("show");       
+        alert(data['id']);
+            }
+    });
     //alert('data');
    },   
    error: function(data)
@@ -44,5 +52,4 @@
    }
  });
 });
-
 </script>
