@@ -41,6 +41,10 @@ class PaymentsTable extends Table
             'className' => 'Accounts',
             'foreignKey' => 'to_account'
         ])->setProperty('toAccount');
+        $this->belongsTo('Users', [
+        'className' => 'Users',
+        'foreignKey' => 'users_id'
+        ]);
         
         $this->addBehavior('Josegonzalez/Upload.Upload', [
             // You can configure as many upload fields as possible,

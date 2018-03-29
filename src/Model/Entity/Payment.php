@@ -34,6 +34,7 @@ class Payment extends Entity
         'amount' => true,
         'voucher_no' => true,
         'voucher' => true,
-        'date' => true
+        'date' => true,
+        'users_id' => true
     ];
 }

@@ -50,8 +50,8 @@ class AppController extends Controller
     }
     public function beforeRender(\Cake\Event\Event $event)
     {
-    $this->viewBuilder()->theme('Bootstrap');
-   // $this->Auth->allow(['index', 'view', 'display']);
+        $this->viewBuilder()->theme('Bootstrap');
+        $this->set('Auth', $this->Auth);
     }
     
     public function initialize()

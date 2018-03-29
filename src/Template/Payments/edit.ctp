@@ -24,6 +24,7 @@
             echo $this->Form->input('voucher_no');
             echo $this->Form->input('voucher');
             echo $this->Form->input('date');
+            echo $this->Form->hidden('users_id',['default' => $Auth->user('id')]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>

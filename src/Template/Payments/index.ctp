@@ -16,7 +16,7 @@
                 <th><?= $this->Paginator->sort('description') ?></th>
                 <th><?= $this->Paginator->sort('amount') ?></th>
                 <th><?= $this->Paginator->sort('voucher_no') ?></th>
-                <th><?= $this->Paginator->sort('voucher') ?></th>
+                <th><?= $this->Paginator->sort('users_id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -24,17 +24,19 @@
         <?php foreach ($payments as $payment): ?>
             <tr>
                 <td><?= $this->Number->format($payment->id) ?></td>
-                    <td><?= $this->Number->format($payment->from_account) ?></td>
-                    <td><?= $this->Number->format($payment->to_account) ?></td>
+                    <td><?= $payment->fromAccount['name']?></td>
+                    <td><?= $payment->toAccount['name'] ?></td>
                 <td><?= h($payment->description) ?></td>
                     <td><?= $this->Number->format($payment->amount) ?></td>
                     <td><?= $this->Number->format($payment->voucher_no) ?></td>
-                <td><?= h($payment->voucher) ?></td>
+                
+                <td><?= $payment->user['username'] ?></td>
                     <td class="actions">
                     <?= $this->Html->link('<span class="glyphicon glyphicon-zoom-in"></span><span class="sr-only">' . __('View') . '</span>', ['action' => 'view', $payment->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('View')]) ?>
                     <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span><span class="sr-only">' . __('Edit') . '</span>', ['action' => 'edit', $payment->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('Edit')]) ?>
                     <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span><span class="sr-only">' . __('Delete') . '</span>', ['action' => 'delete', $payment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $payment->id), 'escape' => false, 'class' => 'btn btn-xs btn-danger', 'title' => __('Delete')]) ?>
                 </td>
+                
             </tr>
 
         <?php endforeach; ?>

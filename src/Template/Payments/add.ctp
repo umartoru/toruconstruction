@@ -17,7 +17,7 @@
             echo $this->Form->input('voucher_no');
             echo $this->Form->input('voucher', ['type' => 'file']);
             echo $this->Form->input('date');
-            echo $this->Form->hidden('users_id');
+            echo $this->Form->hidden('users_id',['default' => $Auth->users('id')]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>

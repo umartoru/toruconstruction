@@ -20,8 +20,9 @@ class PaymentsController extends AppController
      */
     public function index()
     {
-        $payments = $this->paginate($this->Payments);
-
+        $payments = $this->paginate($this->Payments,[
+                'contain' => ['FromAccounts','ToAccounts', 'Users']
+                ]);
         $this->set(compact('payments'));
     }
 
