@@ -20,7 +20,7 @@ echo $this->element('leftMenu');
 <?php echo $this->element('Payments/add');?>
 
 <script>
-    $( document ).ready(function() {
+$( document ).ready(function() {
   $.ajax({ 
    url: "accounts/getTree",
    method:"POST",

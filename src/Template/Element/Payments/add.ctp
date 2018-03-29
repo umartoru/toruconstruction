@@ -23,9 +23,10 @@
         <?php  
             echo $this->Form->create($payment, [
             'url' => '/payments/add',
-            'type' => 'file'
+            'type' => 'file',
+            'id'    => 'payment'    
             ]);?>
-         <?= $this->Form->create($payment, ['type' => 'file']); ?>
+         
     <fieldset>
         <!--<legend><?= __('Add Payment') ?></legend>-->
         <?php
@@ -49,3 +50,58 @@
       
     </div>
 </div>
+
+
+<!-- Modal for dialog yes no  -->
+  <div class="modal fade" id="dialogModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Another</h4>
+        </div>
+        <div class="modal-body">
+            <div>
+                <br>
+            <button type="button" onclick='$("#paymentModal").modal("show"); $("#dialogModal").modal("hide");' class="btn btn-success pull-right">
+                 <span class="glyphicon glyphicon-ok"></span> Yes</button>
+                 <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span> No</button>
+                <br>
+            </div>      
+        </div>
+          <div class="modal-footer"><p>Note: do you want to save another payment to same account?</p></div>
+      </div>
+    </div>
+  </div>
+<script>
+    $("#payment").submit(function(e) {
+
+    var url = "payments/add/"; // the script where you handle the form input.
+    var formData = new FormData($(this)[0]);
+ 
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: formData, // serializes the form's elements.
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data)
+           {
+             //alert('Payment successfully saved'); // show response from the php script.
+             $("#description").val('');
+             $("#amount").val('');
+             $("#voucher-no").val('');
+             $("#voucher").val('');
+             $("#paymentModal").modal("hide");
+             $("#dialogModal").modal("show");
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+</script>
+    

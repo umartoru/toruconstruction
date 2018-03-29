@@ -48,16 +48,17 @@ class PaymentsController extends AppController
      */
     public function add()
     {
+        $this->autoRender = FALSE;
         $payment = $this->Payments->newEntity();
+        //$this->RequestHandler->config('inputTypeMap.json', ['json_decode', true]);
+        $this->log($this->request->getData());
         if ($this->request->is('post')) {
             //dump($this->request->getData());
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
             if ($this->Payments->save($payment)) {
-                $this->Flash->success(__('The payment has been saved.'));
 
-                return $this->redirect(['action' => 'index','controller'=>'accounts']);
+                 return $this->response;
             }
-            $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
         $this->set(compact('payment'));
     }
