@@ -44,10 +44,14 @@ class AppController extends Controller
     'BootstrapUI.Flash',
     'BootstrapUI.Paginator'
     ];
-    
+    public function beforeFilter(\Cake\Event\Event $event)
+    {
+        //$this->Auth->allow(['index', 'view', 'display']);
+    }
     public function beforeRender(\Cake\Event\Event $event)
     {
     $this->viewBuilder()->theme('Bootstrap');
+   // $this->Auth->allow(['index', 'view', 'display']);
     }
     
     public function initialize()
@@ -56,6 +60,16 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Accounts',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ]
+        ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.

@@ -12,7 +12,9 @@
         <?php
             echo $this->Form->input('username');
             echo $this->Form->input('password');
-            echo $this->Form->input('role');
+            echo $this->Form->control('role', [
+            'options' => ['Accountant' => 'Accountant', 'CEO' => 'CEO', 'General Manager' => 'General Manager', 'Partner'=> 'Partner']
+        ])
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>

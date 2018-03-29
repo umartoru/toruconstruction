@@ -15,8 +15,8 @@
             echo $this->Form->input('name');
             echo $this->Form->input('description');
             echo $this->Form->input('parent_id', ['options' => $parentAccounts]);
-            echo $this->Form->input('lft');
-            echo $this->Form->input('rght');
+            echo $this->Form->hidden('lft');
+            echo $this->Form->hidden('rght');
             echo $this->Form->input('status');
         ?>
     </fieldset>

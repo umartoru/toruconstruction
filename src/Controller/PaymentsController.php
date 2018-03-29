@@ -50,13 +50,9 @@ class PaymentsController extends AppController
     {
         $this->autoRender = FALSE;
         $payment = $this->Payments->newEntity();
-        //$this->RequestHandler->config('inputTypeMap.json', ['json_decode', true]);
-        $this->log($this->request->getData());
         if ($this->request->is('post')) {
-            //dump($this->request->getData());
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
             if ($this->Payments->save($payment)) {
-
                  return $this->response;
             }
         }

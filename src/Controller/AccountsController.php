@@ -102,7 +102,12 @@ class AccountsController extends AppController
             }
             $this->Flash->error(__('The account could not be saved. Please, try again.'));
         }
-        $parentAccounts = $this->Accounts->ParentAccounts->find('list', ['limit' => 200]);
+        $parentAccounts = $this->Accounts->find('treeList', [
+        // 'keyPath' => 'url',
+       // 'valuePath' => 'id',
+        'spacer' => '--'
+        ]);
+        //$parentAccounts = $this->Accounts->ParentAccounts->find('threaded', ['limit' => 200]);
         $this->set(compact('account', 'parentAccounts'));
     }
 

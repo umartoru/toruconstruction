@@ -67,8 +67,11 @@ class UsersTable extends Table
             ->scalar('role')
             ->maxLength('role', 50)
             ->requirePresence('role', 'create')
-            ->notEmpty('role');
-
+            ->notEmpty('role')
+            ->add('role', 'inList', [
+                'rule' => ['inList', ['CEO', 'General Manager', 'Accountant', 'Partner']],
+                'message' => 'Please enter a valid role'
+            ]);
         return $validator;
     }
 

@@ -101,7 +101,11 @@ class PaymentsTable extends Table
             ->dateTime('date')
             ->requirePresence('date', 'create')
             ->notEmpty('date');
-
+        
+        $validator
+            ->integer('users_id')
+            ->requirePresence('users_id', 'create')
+            ->notEmpty('users_id');
         return $validator;
     }
 }
