@@ -27,6 +27,8 @@
                     <p><?= h($payment->voucher) ?></p>
                     <h6 class="subheader"><?= __('Date') ?></h6>
                     <p><?= h($payment->date) ?></p>
+                    <h6 class="subheader"><?= __('User Name') ?></h6>
+                    <p><?= h($payment->user['username']) ?></p>
                 </div>
                 
             </div>
