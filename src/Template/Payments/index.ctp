@@ -1,10 +1,6 @@
-<div class="actions columns col-lg-2 col-md-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="nav nav-stacked nav-pills">
-        <li><?= $this->Html->link(__('New Payment'), ['action' => 'add']) ?></li>
-        <li class="active disabled"><?= $this->Html->link(__('List Payments'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
+<?php 
+echo $this->element('leftMenu');
+?>
 <div class="payments index col-lg-10 col-md-9 columns">
     <div class="table-responsive">
         <table class="table table-striped">

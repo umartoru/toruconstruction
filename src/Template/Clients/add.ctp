@@ -1,10 +1,6 @@
-<div class="actions columns col-lg-2 col-md-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="nav nav-stacked nav-pills">
-        <li class="active disabled"><?= $this->Html->link(__('New Client'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Clients'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
+<?php 
+echo $this->element('leftMenu');
+?>
 <div class="clients form col-lg-10 col-md-9 columns">
     <?= $this->Form->create($client); ?>
     <fieldset>
