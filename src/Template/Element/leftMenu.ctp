@@ -14,8 +14,8 @@
         <li id="listAccounts" class=""><?= $this->Html->link(__('List Accounts'), ['controller' => 'Accounts','action' => 'index']) ?></li>
         <li id="newClients" class=""><?= $this->Html->link(__('New Client'), ['controller' => 'Clients', 'action' => 'add']) ?> </li>
         <li id="listClients" class=""><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?> </li>
-        <li id="listIncomes" class=""><?= $this->Html->link(__('List Income'), ['controller' => 'Incomes', 'action' => 'index']) ?> </li>
         <li id="newIncomes" class=""><?= $this->Html->link(__('New Income'), ['controller' => 'Incomes', 'action' => 'add']) ?> </li>
+        <li id="listIncomes" class=""><?= $this->Html->link(__('List Income'), ['controller' => 'Incomes', 'action' => 'index']) ?> </li>
         <li id="listPayments" class=""><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?> </li>
         <li id="newProjects" class=""><?= $this->Html->link(__('New Project'), ['controller' => 'Projects','action' => 'add']) ?></li>
         <li id="listProjects" class=""><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects','action' => 'index']) ?></li>

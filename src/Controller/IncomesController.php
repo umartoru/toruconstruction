@@ -61,7 +61,9 @@ class IncomesController extends AppController
             }
             $this->Flash->error(__('The income could not be saved. Please, try again.'));
         }
-        $accounts = $this->Incomes->Accounts->find('list', ['limit' => 200]);
+        $accounts = $this->Incomes->Accounts
+                ->find('list', ['limit' => 200])
+                ->where(['parent_id' => 1]);
         $this->set(compact('income', 'accounts'));
     }
 
