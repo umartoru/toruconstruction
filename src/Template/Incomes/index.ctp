@@ -1,12 +1,6 @@
-<div class="actions columns col-lg-2 col-md-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="nav nav-stacked nav-pills">
-        <li><?= $this->Html->link(__('New Income'), ['action' => 'add']) ?></li>
-        <li class="active disabled"><?= $this->Html->link(__('List Incomes'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Accounts'), ['controller' => 'Accounts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Account'), ['controller' => 'Accounts', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
+<?php 
+echo $this->element('leftMenu');
+?>
 <div class="incomes index col-lg-10 col-md-9 columns">
     <div class="table-responsive">
         <table class="table table-striped">
