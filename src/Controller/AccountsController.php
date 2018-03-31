@@ -41,12 +41,16 @@ class AccountsController extends AppController
     
     public function getTree()
     {
-        $accounts = $this->Accounts->find('All',['fields' =>['id','name','parent_id']]);
+        $accounts = $this->Accounts->find('All',['fields' =>['id','name','parent_id','status']]);
             foreach($accounts as $row)
             {
              $sub_data["id"] = $row["id"];
              $sub_data["name"] = $row["name"];
              $sub_data["text"] = $row["name"];
+             if($row["status"] == "Active")
+             $sub_data["state"]["disabled"]= false;
+             else
+               $sub_data["state"]["disabled"]= true;  
              $sub_data["parent_id"] = $row["parent_id"];
              $data[] = $sub_data;
             }
