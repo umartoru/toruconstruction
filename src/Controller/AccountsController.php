@@ -12,6 +12,11 @@ use App\Controller\AppController;
  */
 class AccountsController extends AppController
 {
+    
+    public function initialize() {
+        parent::initialize();
+        $this->Authorize->isAuthorized($this->Auth->user());
+    }
 
     /**
      * Index method
@@ -155,4 +160,6 @@ class AccountsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+
 }

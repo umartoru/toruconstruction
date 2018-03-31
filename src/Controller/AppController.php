@@ -60,6 +60,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Authorize');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
                 'controller' => 'Accounts',
@@ -78,4 +79,14 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
+//    public function isAuthorized($user)
+//{
+//    // Admin can access every action
+//    if (isset($user['role']) && $user['role'] === 'CEO') {
+//        return true;
+//    }
+//
+//    // Default deny
+//    return false;
+//}
 }
