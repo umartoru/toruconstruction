@@ -103,4 +103,16 @@ class PaymentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    public function newPayment() {
+        $this->loadModel('Accounts');
+        $payment = $this->Payments->newEntity();
+        $tree = $this->Accounts->find('treeList', [
+        // 'keyPath' => 'url',
+       // 'valuePath' => 'id',
+        'spacer' => '--'
+        ]);
+        $this->set('tree', $tree);
+        $this->set(compact('payment'));
+    }
 }

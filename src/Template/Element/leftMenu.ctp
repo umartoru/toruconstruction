@@ -16,6 +16,7 @@
         <li id="listClients" class=""><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?> </li>
         <li id="newIncomes" class=""><?= $this->Html->link(__('New Income'), ['controller' => 'Incomes', 'action' => 'add']) ?> </li>
         <li id="listIncomes" class=""><?= $this->Html->link(__('List Income'), ['controller' => 'Incomes', 'action' => 'index']) ?> </li>
+        <li id="newPayments" class=""> <?= $this->Html->link(__('New Payment'), ['controller' => 'Payments','action' => 'newPayment']) ?></li>
         <li id="listPayments" class=""><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?> </li>
         <li id="newProjects" class=""><?= $this->Html->link(__('New Project'), ['controller' => 'Projects','action' => 'add']) ?></li>
         <li id="listProjects" class=""><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects','action' => 'index']) ?></li>
@@ -46,6 +47,8 @@
             $('#newIncomes').addClass('active disabled');
         else if (res[len] == 'payments')
             $('#listPayments').addClass('active disabled');
+        else if(res[len-1] == 'payments' & res[len] == 'newPayment')
+            $('#newpayments').addClass('active disabled');
         else if (res[len] == 'projects')
             $('#listProjects').addClass('active disabled');
         else if(res[len-1] == 'projects' & res[len] == 'add')

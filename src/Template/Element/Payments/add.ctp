@@ -79,7 +79,7 @@
 <script>
     $("#payment").submit(function(e) {
 
-    var url = "payments/add/"; // the script where you handle the form input.
+    var url = "add/"; // the script where you handle the form input.
     var formData = new FormData($(this)[0]);
  
 
