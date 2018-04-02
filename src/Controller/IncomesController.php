@@ -51,6 +51,7 @@ class IncomesController extends AppController
      */
     public function add()
     {
+        $this->autoRender = FALSE;
         $income = $this->Incomes->newEntity();
         if ($this->request->is('post')) {
             $income = $this->Incomes->patchEntity($income, $this->request->getData());
@@ -110,5 +111,16 @@ class IncomesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function newIncome() {
+        $this->loadModel('Accounts');
+        $income = $this->Incomes->newEntity();
+        $accounts = $this->Incomes->Accounts
+                ->find('list', ['limit' => 200])
+                ->where(['parent_id' => 1]);
+        $this->set(compact('income', 'accounts'));
+        
+       // $this->set('tree', $tree);
+        $this->set(compact('income'));
     }
 }

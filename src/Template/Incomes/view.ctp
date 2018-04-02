@@ -42,5 +42,13 @@
                 </div>
             </div>
         </div>
+<div class="col-lg-9 columns strings">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <?= $this->Html->image('/files/Incomes/voucher/'.$income->voucher)?>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </div>

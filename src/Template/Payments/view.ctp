@@ -33,7 +33,7 @@
                 
             </div>
         </div>
-<div class="col-lg-5 columns strings">
+<div class="col-lg-9 columns strings">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?= $this->Html->image('/files/Payments/voucher/'.$payment->voucher)?>
