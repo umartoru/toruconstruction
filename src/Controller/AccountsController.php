@@ -165,5 +165,13 @@ class AccountsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
+    public function listAccounts() {
+        $accounts = $this->paginate($this->Accounts,[
+            'contain' => ['ParentAccounts']
+        ]);
+
+        $this->set(compact('accounts'));
+    }
+    
 
 }

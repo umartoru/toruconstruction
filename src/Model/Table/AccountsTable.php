@@ -87,7 +87,7 @@ class AccountsTable extends Table
 
         $validator
             ->scalar('status')
-            ->allowEmpty('status');
+            ->requirePresence('status', 'create');
 
         return $validator;
     }

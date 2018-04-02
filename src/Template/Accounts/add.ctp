@@ -11,7 +11,7 @@ echo $this->element('leftMenu');
             echo $this->Form->input('parent_id', ['options' => $parentAccounts]);
             echo $this->Form->hidden('lft');
             echo $this->Form->hidden('rght');
-            echo $this->Form->input('status',['options' => ['Active','Suspended','Disabled']]);
+            echo $this->Form->input('status',['options' => ['Select Status','Active','Suspended','Disabled'],['value' => 'Active']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>
