@@ -61,6 +61,18 @@ $this->prepend('script', $this->Html->script([
     ?>
 </head>
 <body>
+    <? $this->start('navbar.top');?>
+    <li class="active"><a href="#">Home</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+    <? $this->end();?>
     <header role="banner" class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
@@ -72,7 +84,7 @@ $this->prepend('script', $this->Html->script([
                     <span class="icon-bar"></span>
                 </button>
                 <?php endif; ?>
-                <?= $this->Html->link(Configure::read('App.name'), '/', ['class' => 'navbar-brand']); ?>
+                <?= $this->Html->link('Toru Construction', '/', ['class' => 'navbar-brand']); ?>
             </div>
             <?php if ($this->fetch('navbar.top')): ?>
             <nav role="navigation" class="collapse navbar-collapse" id="navbar-top">
