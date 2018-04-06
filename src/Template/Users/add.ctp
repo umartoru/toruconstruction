@@ -1,5 +1,5 @@
 <?php 
-echo $this->element('leftMenu');
+//echo $this->element('leftMenu');
 ?>
 <div class="users form col-lg-10 col-md-9 columns">
     <?= $this->Form->create($user); ?>

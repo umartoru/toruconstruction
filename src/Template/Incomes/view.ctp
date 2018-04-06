@@ -4,9 +4,6 @@
         <li><?= $this->Html->link(__('Edit Income'), ['action' => 'edit', $income->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Income'), ['action' => 'delete', $income->id], ['confirm' => __('Are you sure you want to delete # {0}?', $income->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Incomes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Income'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Accounts'), ['controller' => 'Accounts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Account'), ['controller' => 'Accounts', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="incomes view col-lg-10 col-md-9 columns">

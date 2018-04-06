@@ -4,10 +4,7 @@
         <li><?= $this->Html->link(__('Edit Account'), ['action' => 'edit', $account->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Account'), ['action' => 'delete', $account->id], ['confirm' => __('Are you sure you want to delete # {0}?', $account->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Accounts'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Account'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Parent Accounts'), ['controller' => 'Accounts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Parent Account'), ['controller' => 'Accounts', 'action' => 'add']) ?> </li>
-    </ul>
+        </ul>
 </div>
 <div class="accounts view col-lg-10 col-md-9 columns">
     <h2><?= h($account->name) ?></h2>

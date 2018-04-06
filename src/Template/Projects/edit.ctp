@@ -1,17 +1,13 @@
 <div class="actions columns col-lg-2 col-md-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="nav nav-stacked nav-pills">
-        <li class="active disabled"><?= $this->Html->link(__('Edit Project'), ['action' => 'edit', $project->id]) ?> </li>
+        <li class="active disabled"><?= $this->Html->link(__('Cancle'), ['action' => 'view', $project->id]) ?> </li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $project->id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $project->id), 'class' => 'btn-danger']
             )
         ?></li>
-        <li><?= $this->Html->link(__('New Project'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Projects'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Client'), ['controller' => 'Clients', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="projects form col-lg-10 col-md-9 columns">

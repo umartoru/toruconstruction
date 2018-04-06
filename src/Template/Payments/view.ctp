@@ -4,7 +4,6 @@
         <li><?= $this->Html->link(__('Edit Payment'), ['action' => 'edit', $payment->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Payment'), ['action' => 'delete', $payment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $payment->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Payments'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Payment'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="payments view col-lg-10 col-md-9 columns">

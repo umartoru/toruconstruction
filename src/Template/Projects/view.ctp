@@ -4,9 +4,6 @@
         <li><?= $this->Html->link(__('Edit Project'), ['action' => 'edit', $project->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Project'), ['action' => 'delete', $project->id], ['confirm' => __('Are you sure you want to delete # {0}?', $project->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Projects'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Project'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Client'), ['controller' => 'Clients', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="projects view col-lg-10 col-md-9 columns">

@@ -8,8 +8,6 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'btn-danger']
             )
         ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="users form col-lg-10 col-md-9 columns">

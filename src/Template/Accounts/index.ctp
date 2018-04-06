@@ -1,7 +1,7 @@
 <?php 
-echo $this->element('leftMenu');
+//echo $this->element('leftMenu');
 ?>
-<div class="payments index col-lg-10 col-md-9 columns">
+<div class="payments index col-lg-12 col-md-12 columns">
     <div class="table-responsive">
         <table class="table table-striped">
         <thead>
