@@ -15,8 +15,8 @@
     <fieldset>
         <legend><?= __('Edit Payment') ?></legend>
         <?php
-            echo $this->Form->input('from_account');
-            echo $this->Form->input('to_account');
+            echo $this->Form->input('from_account',['options'=>$tree]);
+            echo $this->Form->input('to_account',['options'=>$tree]);
             echo $this->Form->input('description');
             echo $this->Form->input('amount');
             echo $this->Form->input('voucher_no');
@@ -27,4 +27,9 @@
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>
     <?= $this->Form->end() ?>
+</div>
+<div class="payments form col-lg-10 col-md-9 columns">
+    <legend><?= __('Voucher') ?></legend>
+    <?= $this->Html->image('/files/Payments/voucher/'.$payment->voucher,['width' => '950px'])?>
+
 </div>

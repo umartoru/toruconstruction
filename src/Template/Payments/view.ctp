@@ -35,7 +35,7 @@
 <div class="col-lg-9 columns strings">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <?= $this->Html->image('/files/Payments/voucher/'.$payment->voucher)?>
+                    <?= $this->Html->image('/files/Payments/voucher/'.$payment->voucher,['width' => '950px'])?>
                 </div>
                 
             </div>

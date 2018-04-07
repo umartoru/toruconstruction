@@ -81,6 +81,11 @@ class PaymentsController extends AppController
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
+        $this->loadModel('Accounts');
+        $tree = $this->Accounts->find('treeList', [
+        'spacer' => '--'
+        ]);
+        $this->set('tree', $tree);
         $this->set(compact('payment'));
     }
 
