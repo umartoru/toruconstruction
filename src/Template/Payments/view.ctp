@@ -15,9 +15,9 @@
                     <b><?= __('ID:   ') ?></b>
                     <?= $this->Number->format($payment->id) ?><br>
                     <b><?= __('From Account:   ') ?></b>
-                    <?= $payment->fromAccount['name'] ?>
-                    <h6 class="subheader"><?= __('To Account') ?></h6>
-                    <p><?= $payment->toAccount['name'] ?></p>
+                    <?= $payment->fromAccount['name'] ?><br>
+                    <b><?= __('To Account:  ') ?></b>
+                    <?= $payment->toAccount['name'] ?>
                     <h6 class="subheader"><?= __('Amount') ?></h6>
                     <p><?= $this->Number->format($payment->amount) ?></p>
                     <h6 class="subheader"><?= __('Description') ?></h6>
