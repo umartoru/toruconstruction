@@ -35,14 +35,14 @@ class AccountsController extends AppController
     }
 
     
-    public function getTree()
+    public function getTree($amount)
     {
-        $accounts = $this->Accounts->find('All',['fields' =>['id','name','parent_id','status']]);
+        $accounts = $this->Accounts->find('All');
             foreach($accounts as $row)
             {
              $sub_data["id"] = $row["id"];
              $sub_data["name"] = $row["name"];
-             $sub_data["text"] = $row["name"];
+             $sub_data["text"] = $row["name"]."           -            ".$row[$amount];
              if($row["status"] == "Active")
              $sub_data["state"]["disabled"]= false;
              else
@@ -110,7 +110,7 @@ class AccountsController extends AppController
         $parentAccounts = $this->Accounts->find('treeList', [
         // 'keyPath' => 'url',
        // 'valuePath' => 'id',
-        'spacer' => '--'
+        'spacer' => '-'
         ]);
         //$parentAccounts = $this->Accounts->ParentAccounts->find('threaded', ['limit' => 200]);
         $this->set(compact('account', 'parentAccounts'));
@@ -137,7 +137,11 @@ class AccountsController extends AppController
             }
             $this->Flash->error(__('The account could not be saved. Please, try again.'));
         }
-        $parentAccounts = $this->Accounts->ParentAccounts->find('list', ['limit' => 200]);
+        $parentAccounts = $this->Accounts->find('treeList', [
+        // 'keyPath' => 'url',
+       // 'valuePath' => 'id',
+        'spacer' => '--'
+        ]);
         $this->set(compact('account', 'parentAccounts'));
     }
 
@@ -169,5 +173,9 @@ class AccountsController extends AppController
         $this->set(compact('accounts'));
     }
     
+//    public function recovery(){
+//        $this->Accounts->recovery();
+//        $this->autoRender = false;
+//    }
 
 }

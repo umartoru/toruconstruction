@@ -40,6 +40,7 @@ class Account extends Entity
         'created' => true,
         'modified' => true,
         'status' => true,
+        'amount' => true,
         'parent_account' => true,
         'child_accounts' => true
     ];

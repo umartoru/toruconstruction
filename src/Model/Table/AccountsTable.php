@@ -105,4 +105,10 @@ class AccountsTable extends Table
 
         return $rules;
     }
+    
+        public function recovery(){
+        $accounts = \Cake\ORM\TableRegistry::get('Accounts');
+        $accounts->recover();
+        //$this->autoRender = false;
+    }
 }

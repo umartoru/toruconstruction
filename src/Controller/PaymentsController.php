@@ -50,12 +50,15 @@ class PaymentsController extends AppController
     public function add()
     {
         $this->autoRender = FALSE;
+        $this->loadModel('Accounts');
         $payment = $this->Payments->newEntity();
         if ($this->request->is('post')) {
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
             if ($this->Payments->save($payment)) {
+                $this->updateAccountPayment($payment->to_account,$payment->amount);
                  return $this->response;
             }
+
         }
         $this->set(compact('payment'));
     }
@@ -120,4 +123,25 @@ class PaymentsController extends AppController
         $this->set('tree', $tree);
         $this->set(compact('payment'));
     }
+    
+    public function updateAccountPayment($nodeId,$amount) {
+        //            find the path from the current node
+            //$nodeId = $payment->to_account;
+            $path = $this->Accounts->find('path', ['for' => $nodeId]);
+//            prepare a list of id's in the path to update amount 
+            foreach ($path as $path) {
+            $id[]= $path->id;
+            }
+//            find the accounts that needs to be updated
+            $account = $this->Accounts->find('all')
+                    ->where(['id in' => $id]);
+//            update the accounts amounts as it will have its and its child's amounts total
+           foreach ($account as $account) {
+               $account->amount_expense += $amount;
+               $this->Accounts->save($account);
+            }
+            
+
+    }
+    
 }

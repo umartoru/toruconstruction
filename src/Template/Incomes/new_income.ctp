@@ -22,7 +22,7 @@
 <script>
 $( document ).ready(function() {
   $.ajax({ 
-   url: "/newtoru/accounts/getTree",
+   url: "/newtoru/accounts/getTree/amount_income",
    method:"POST",
    dataType: "json",       
    success: function(data)  
