@@ -18,10 +18,13 @@ class PaymentsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+    public function index($limit = NULL)
     {
+        if($limit == NULL)
+            $limit = 25;
         $this->loadModel('Accounts');
         $payments = $this->paginate($this->Payments,[
+                'limit' => $limit,
                 'contain' => ['FromAccounts','ToAccounts', 'Users']
                 ]);
                 //dump($payments);

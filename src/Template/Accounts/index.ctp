@@ -26,7 +26,7 @@
                     <td class="actions">
                     <?= $this->Html->link('<span class="glyphicon glyphicon-zoom-in"></span><span class="sr-only">' . __('View') . '</span>', ['action' => 'view', $account->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('View')]) ?>
                     <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span><span class="sr-only">' . __('Edit') . '</span>', ['action' => 'edit', $account->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('Edit')]) ?>
-                    <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span><span class="sr-only">' . __('Delete') . '</span>', ['action' => 'delete', $account->id], ['confirm' => __('Are you sure you want to delete # {0}?', $account->id), 'escape' => false, 'class' => 'btn btn-xs btn-danger', 'title' => __('Delete')]) ?>
+                    <?// $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span><span class="sr-only">' . __('Delete') . '</span>', ['action' => 'delete', $account->id], ['confirm' => __('Are you sure you want to delete # {0}?', $account->id), 'escape' => false, 'class' => 'btn btn-xs btn-danger', 'title' => __('Delete')]) ?>
                 </td>
                 
             </tr>
@@ -38,8 +38,17 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
+        </ul>
             <?= $this->Paginator->numbers() ?>
+        <ul class="pagination">
             <?= $this->Paginator->next(__('next') . ' >') ?>
+        </ul>
+        <ul class="pagination">
+            <li>
+                <?echo $this->Html->link('Show Max',['controller' =>
+                    'Payments', 'action' => 'index', 200]
+                );?>
+            </li>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
