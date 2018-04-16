@@ -29,7 +29,17 @@ class AccountsController extends AppController
         $accounts = $this->paginate($this->Accounts,[
                     'contain' => ['ParentAccounts']
                 ]);
-
+                $newAccount;
+                // this is to add path to account description 
+                foreach ($accounts as $account){
+                    $nodeId = $account->id;
+                    $crumbs = $this->Accounts->find('path', ['for' => $nodeId]);
+                    $path= NULL;
+                    foreach ($crumbs as $crumb) {
+                        $path[]=$crumb->name;
+                    }
+                    $account->description = $account->description .'<br>'. implode('->', $path);
+                }
                 $this->set(compact('accounts'));
 
     }

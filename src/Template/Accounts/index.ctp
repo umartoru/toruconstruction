@@ -19,7 +19,7 @@
             <tr>
                 <td><?= $this->Number->format($account->id) ?></td>
                     <td><?= $account['name'] ?></td>
-                <td><?= h($account->description) ?></td>
+                <td><?= $account->description ?></td>
                     <td><?= $account['parent_account']['name'] ?></td>
                     <td><?= $account['status'] ?></td>
                 
