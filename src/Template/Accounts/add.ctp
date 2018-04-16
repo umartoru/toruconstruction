@@ -13,7 +13,7 @@
             <div id="parent-account" ></div>
             <div style="clear:both"><br> </div>
             <?
-            echo $this->Form->hidden('parent_id',['options'=> $parentAccounts]);
+            echo $this->Form->hidden('parent_id',['id'=>'parent-id']);
             echo $this->Form->hidden('lft');
             echo $this->Form->hidden('rght');
             echo $this->Form->input('status',['options' => ['Select Status','Active','Suspended','Disabled'],['value' => 'Active']]);
@@ -39,6 +39,7 @@
   </div>
 <script>
 $( document ).ready(function() {
+   // $("#parent-id").hide();
   $.ajax({ 
    url: "/newtoru/accounts/getTree/amount_expense",
    method:"POST",
