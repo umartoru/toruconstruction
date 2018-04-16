@@ -36,6 +36,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?= $this->Html->image('/files/Payments/voucher/'.$payment->voucher,['width' => '950px'])?>
+                    <embed width='950' height='456' src='files/Payments/voucher/<?=$payment->voucher?>'/>
                 </div>
                 
             </div>

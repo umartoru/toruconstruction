@@ -177,5 +177,25 @@ class AccountsController extends AppController
 //        $this->Accounts->recovery();
 //        $this->autoRender = false;
 //    }
+    public function addRecovery(){
+                    $this->autoRender = false;
 
+        $descendants = $this->Accounts->find('children', ['for' => 15,'contain' => ['AccountsTo']]);
+        $sumt=0; ?>
+        <table border="1">
+            <th>id</th>
+            <th>name</th>
+            <th>Total amount</th>
+            <th>voucher amount</th>
+        <?
+        foreach ($descendants as $account) {
+            echo '<tr><td>'.$account->id ."</td><td>" .$account->name . "</td><td>" . $account->amount_expense . "</td>";
+            $sum =0;
+            foreach ($account->accounts_to as $payments)
+                $sum += $payments->amount;
+            echo "<td>". $sum."</td></tr>";
+            $sumt+=$sum;
+        }
+        echo "<tr><td>". $sumt."</td></tr>";
+    }
 }
