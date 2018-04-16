@@ -20,9 +20,21 @@ class PaymentsController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Accounts');
         $payments = $this->paginate($this->Payments,[
                 'contain' => ['FromAccounts','ToAccounts', 'Users']
                 ]);
+                //dump($payments);
+                        // this is to add path to account description 
+                foreach ($payments as $payment){
+                    $nodeId = $payment->to_account;
+                    $crumbs = $this->Accounts->find('path', ['for' => $nodeId]);
+                    $path= NULL;
+                    foreach ($crumbs as $crumb) {
+                        $path[]=$crumb->name;
+                    }
+                    $payment->description = $payment->description .'<br>'. implode('->', $path);
+                }
         $this->set(compact('payments'));
     }
 

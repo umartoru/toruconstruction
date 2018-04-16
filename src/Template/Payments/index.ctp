@@ -22,7 +22,7 @@
                 <td><?= $this->Number->format($payment->id) ?></td>
                     <td><?= $payment->fromAccount['name']?></td>
                     <td><?= $payment->toAccount['name'] ?></td>
-                <td><?= h($payment->description) ?></td>
+                <td><?= $payment->description ?></td>
                     <td><?= $this->Number->format($payment->amount) ?></td>
                     <td><?= $this->Number->format($payment->voucher_no) ?></td>
                 
