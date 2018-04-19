@@ -24,9 +24,12 @@ class AccountsController extends AppController
      * @return \Cake\Http\Response|void
      * this method is updated to work as bootstrap tree
      */
-    public function index()
+    public function index($limit = NULL)
     {
+        if($limit == NULL)
+            $limit = 25;
         $accounts = $this->paginate($this->Accounts,[
+                    'limit' => $limit,
                     'contain' => ['ParentAccounts']
                 ]);
                 // this is to add path to account description 

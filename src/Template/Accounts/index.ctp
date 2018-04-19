@@ -46,7 +46,7 @@
         <ul class="pagination">
             <li>
                 <?echo $this->Html->link('Show Max',['controller' =>
-                    'Payments', 'action' => 'index', 200]
+                    'Accounts', 'action' => 'index', 200]
                 );?>
             </li>
         </ul>
