@@ -166,6 +166,7 @@ class AccountsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->autoRender = false;
         $this->request->allowMethod(['post', 'delete']);
         $account = $this->Accounts->get($id);
         if ($this->Accounts->delete($account)) {
@@ -173,8 +174,15 @@ class AccountsController extends AppController
         } else {
             $this->Flash->error(__('The account could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        // this is to update the amount of of the tree structure;
+        $path = $this->Accounts->find('path', ['for' => $id]);
+        $parent=0;
+        foreach ($path as $path) {
+            $parent= $path->id;
+            exit(0);
+         }
+        $this->addRecovery($parent);
+        //return $this->redirect(['action' => 'index']);
     }
     
     public function listAccounts() {
@@ -189,25 +197,33 @@ class AccountsController extends AppController
 //        $this->Accounts->recovery();
 //        $this->autoRender = false;
 //    }
-    public function addRecovery(){
-                    $this->autoRender = false;
-
-        $descendants = $this->Accounts->find('children', ['for' => 15,'contain' => ['AccountsTo']]);
-        $sumt=0; ?>
-        <table border="1">
-            <th>id</th>
-            <th>name</th>
-            <th>Total amount</th>
-            <th>voucher amount</th>
-        <?
-        foreach ($descendants as $account) {
-            echo '<tr><td>'.$account->id ."</td><td>" .$account->name . "</td><td>" . $account->amount_expense . "</td>";
+    public function addRecovery($id = NULL){
+        $this->autoRender = false;
+        if($id == NULL)
+            $id=1;
+       // echo $id;
+        $descendants = $this->Accounts->find('children', ['for' => $id,'contain' => ['AccountsTo']]);
+        //dump($descendants);
+        foreach($descendants as $accounts){
             $sum =0;
-            foreach ($account->accounts_to as $payments)
-                $sum += $payments->amount;
-            echo "<td>". $sum."</td></tr>";
-            $sumt+=$sum;
+            foreach ($accounts->accounts_to as $payment){
+                $sum += $payment->amount;
+            }
+            
+            $accounts->amount_expense = $sum;
+            //echo $accounts->name."<--old--->".$accounts->amount_expense;
+            $subdescendants = $this->Accounts->find('children', ['for' => $accounts->id, 'direct' => true]);
+            $subsum =0;
+            foreach ($subdescendants as $subaccounts){
+                $subsum += $subaccounts->amount_expense;
+               // echo $subaccounts->getLevel();
+                //echo $subaccounts->amount;
+            }
+            $accounts->amount_expense += $subsum;
+           // echo "<------new----->".$accounts->amount_expense."<hr><br>";
+            $this->Accounts->save($accounts);
+            
         }
-        echo "<tr><td>". $sumt."</td></tr>";
+        
     }
 }

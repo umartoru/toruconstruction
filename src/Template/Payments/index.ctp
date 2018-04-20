@@ -3,6 +3,12 @@
 ?>
 <div class="payments index col-lg-10 col-md-9 columns">
     <div class="table-responsive">
+        <? 
+        echo $this->Form->create('Payment');
+        echo $this->Form->control('Select Account', ['options' => $tree]);
+        echo $this->Form->submit('Submit');
+        echo $this->Form->end();
+        ?>
         <table class="table table-striped">
         <thead>
             <tr>

@@ -18,27 +18,47 @@ class PaymentsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index($limit = NULL)
+    public function index($limit = NULL , $account =NULL)
     {
-        if($limit == NULL)
-            $limit = 25;
         $this->loadModel('Accounts');
-        $payments = $this->paginate($this->Payments,[
-                'limit' => $limit,
-                'contain' => ['FromAccounts','ToAccounts', 'Users']
-                ]);
-                //dump($payments);
-                        // this is to add path to account description 
-                foreach ($payments as $payment){
-                    $nodeId = $payment->to_account;
-                    $crumbs = $this->Accounts->find('path', ['for' => $nodeId]);
-                    $path= NULL;
-                    foreach ($crumbs as $crumb) {
-                        $path[]=$crumb->name;
-                    }
-                    $payment->description = $payment->description .'<br>'. implode('->', $path);
-                }
-        $this->set(compact('payments'));
+        if($limit == NULL)
+            $limit = 200;
+        // if account filter is selected
+        if($account == NULL)
+            $account = 1;
+       // $this->loadModel('Accounts');
+        if($this->request->is('post')){
+            $account = $this->request->getData('Select_Account');
+            //dump($account);
+        }
+        $payment = $this->Payments->newEntity();
+        $tree = $this->Accounts->find('treeList', [
+        'spacer' => '--'
+        ]);
+        $this->set('tree', $tree);
+        // now we will find the list of childern accounts
+            $descendants = $this->Accounts->find('children', ['for' => $account]);
+        //dump($descendants);
+            $id;
+            foreach($descendants as $accounts){
+             $id[] = $accounts->id;
+            }
+            //dump($id);
+            $payments = $this->Payments->find('all')
+                    ->where(['to_account in' => $id])
+                    ->contain(['FromAccounts','ToAccounts', 'Users'])
+                    ->order(['voucher_no' => 'asc']);
+            //dump($payment);
+//            foreach ($payments as $payment){
+//                    $nodeId = $payment->to_account;
+//                    $crumbs = $this->Accounts->find('path', ['for' => $nodeId]);
+//                    $path= NULL;
+//                    foreach ($crumbs as $crumb) {
+//                        $path[]=$crumb->name;
+//                    }
+//                    $payment->description = $payment->description .'<br>'. implode('->', $path);
+//                }
+            $this->set('payments',  $this->paginate($payments,['limit'=>$limit,'maxLimit' => 500]));
     }
 
     /**
@@ -123,7 +143,7 @@ class PaymentsController extends AppController
         } else {
             $this->Flash->error(__('The payment could not be deleted. Please, try again.'));
         }
-
+        
         return $this->redirect(['action' => 'index']);
     }
     
