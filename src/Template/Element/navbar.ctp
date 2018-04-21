@@ -40,6 +40,22 @@
         </ul>
       </li>
       <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Payables
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><? echo $this->Html->link('New Payables',['controller' => 'Payables', 'action' => 'add']);?></li>
+          <li><? echo $this->Html->link('List Payables',['controller' => 'Payables', 'action' => 'index']);?></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Receivalbes
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><? echo $this->Html->link('New Receivables',['controller' => 'Receivables', 'action' => 'add']);?></li>
+          <li><? echo $this->Html->link('List Receivables',['controller' => 'Receivables', 'action' => 'index']);?></li>
+        </ul>
+      </li>
+      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
