@@ -80,7 +80,7 @@ class AccountsController extends AppController
               unset($data[$key]);
              }
             }
-
+            //$this->log($data);
         $this->response->body(json_encode($data));
         $this->autoRender = false; // Set Render False
         return $this->response;
@@ -211,7 +211,7 @@ class AccountsController extends AppController
             }
             
             $accounts->amount_expense = $sum;
-            //echo $accounts->name."<--old--->".$accounts->amount_expense;
+            echo $accounts->name."<--old--->".$accounts->amount_expense;
             $subdescendants = $this->Accounts->find('children', ['for' => $accounts->id, 'direct' => true]);
             $subsum =0;
             foreach ($subdescendants as $subaccounts){
@@ -220,7 +220,7 @@ class AccountsController extends AppController
                 //echo $subaccounts->amount;
             }
             $accounts->amount_expense += $subsum;
-           // echo "<------new----->".$accounts->amount_expense."<hr><br>";
+            echo "<------new----->".$accounts->amount_expense."<hr><br>";
             $this->Accounts->save($accounts);
             
         }

@@ -59,6 +59,14 @@ class AccountsTable extends Table
             'className' => 'Payments',
             'foreignKey' => 'to_account'
         ]);
+        $this->hasMany('AccountsFrom', [
+            'className' => 'Payables',
+            'foreignKey' => 'from_account'
+        ]);
+        $this->hasMany('AccountsTo', [
+            'className' => 'Payables',
+            'foreignKey' => 'to_account'
+        ]);
     }
 
     /**

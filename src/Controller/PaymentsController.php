@@ -39,10 +39,12 @@ class PaymentsController extends AppController
         // now we will find the list of childern accounts
             $descendants = $this->Accounts->find('children', ['for' => $account]);
         //dump($descendants);
-            $id;
+            $id = NULL;
             foreach($descendants as $accounts){
              $id[] = $accounts->id;
             }
+            if($id == NULL)
+                $id = $account;
             //dump($id);
             $payments = $this->Payments->find('all')
                     ->where(['to_account in' => $id])

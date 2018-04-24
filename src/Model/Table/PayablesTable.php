@@ -33,6 +33,18 @@ class PayablesTable extends Table
         $this->setTable('payables');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->belongsTo('FromAccounts', [
+            'className' => 'Accounts',
+            'foreignKey' => 'from_account'
+        ])->setProperty('fromAccount');
+        $this->belongsTo('ToAccounts', [
+            'className' => 'Accounts',
+            'foreignKey' => 'to_account'
+        ])->setProperty('toAccount');
+        $this->belongsTo('Users', [
+        'className' => 'Users',
+        'foreignKey' => 'users_id'
+        ]);
         
         
         $this->addBehavior('Josegonzalez/Upload.Upload', [
@@ -83,8 +95,8 @@ class PayablesTable extends Table
             ->notEmpty('voucher_no');
 
         $validator
-            ->scalar('voucher')
-            ->maxLength('voucher', 250)
+            //->scalar('voucher')
+            //->maxLength('voucher', 250)
             ->requirePresence('voucher', 'create')
             ->notEmpty('voucher');
 
@@ -102,6 +114,12 @@ class PayablesTable extends Table
             ->scalar('status')
             ->requirePresence('status', 'create')
             ->notEmpty('status');
+        
+        $validator
+            ->integer('users_id')
+            ->requirePresence('users_id', 'create')
+            ->notEmpty('users_id');
+        return $validator;
 
         return $validator;
     }
