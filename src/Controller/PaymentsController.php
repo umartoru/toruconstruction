@@ -181,4 +181,22 @@ class PaymentsController extends AppController
 
     }
     
+    public function accountPayment($toAccount = NULL) {
+        $this->loadModel('Accounts');
+        
+        if ($this->request->is('post')) {
+                $toAccount = $this->request->getData('Select_Account');
+        }
+        elseif($toAccount == NULL)
+            $toAccount = 1;
+        
+        $descendants = $this->Accounts->find('children', ['for' => $toAccount,'contain' => ['AccountsTo']]);
+        $tree = $this->Accounts->find('treeList', [
+        'spacer' => '--'
+        ]);
+        $this->set(compact('tree'));
+        $this->set(compact('descendants'));
+        
+    }
+    
 }

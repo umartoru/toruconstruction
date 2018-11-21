@@ -208,8 +208,9 @@ class AccountsController extends AppController
             $sum =0;
             foreach ($accounts->accounts_to as $payment){
                 $sum += $payment->amount;
+                
             }
-            
+            //dump($accounts);
             $accounts->amount_expense = $sum;
             echo $accounts->name."<--old--->".$accounts->amount_expense;
             $subdescendants = $this->Accounts->find('children', ['for' => $accounts->id, 'direct' => true]);

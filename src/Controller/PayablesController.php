@@ -49,8 +49,13 @@ class PayablesController extends AppController
     public function add()
     {
         $this->loadModel('Accounts');
-        $tree = $this->Accounts->find('children', ['for' => 1, 'direct' => true, 'fields' =>['id','name']]);
-        $this->set('tree', $tree);
+        $tree1 = $this->Accounts->find('children', ['for' => 1, 'direct' => true, 'fields' =>['id','name']]);
+        $tree = array();
+        foreach ($tree1 as $tr){
+            $tree[$tr->id]= $tr->name;
+            //$tree['name'] = $tr->name;
+        }
+        $this->set(compact('tree'));
         $payable = $this->Payables->newEntity();
         if ($this->request->is('post')) {
             $payable = $this->Payables->patchEntity($payable, $this->request->getData());

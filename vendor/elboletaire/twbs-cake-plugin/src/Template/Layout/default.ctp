@@ -72,7 +72,7 @@ $this->prepend('script', $this->Html->script([
                     <span class="icon-bar"></span>
                 </button>
                 <?php endif; ?>
-                <?= $this->Html->link('Toru Construction', '/', ['class' => 'navbar-brand']); ?>
+                <?= $this->Html->link('ZOEL Associates', '/accounts', ['class' => 'navbar-brand']); ?>
             </div>
             <?php 
             echo $this->element('navbar');

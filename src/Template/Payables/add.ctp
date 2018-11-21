@@ -10,8 +10,8 @@
     <fieldset>
         <legend><?= __('Add Payable') ?></legend>
         <?php
-            echo $this->Form->input('from_account');
-            echo $this->Form->input('to_account',['options' => $tree]);
+            echo $this->Form->input('from_account',['options' => $tree]);
+            echo $this->Form->input('to_account');
             echo $this->Form->input('description');
             echo $this->Form->input('amount');
             echo $this->Form->input('voucher_no');
